@@ -1,4 +1,4 @@
-# ⚡ Portfolyos Sitesi
+# ⚡ Portfolyo Sitesi
 
 
 ![Lisans](https://img.shields.io/badge/lisans-MIT-00ff88?style=flat-square)
