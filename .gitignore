@@ -1,0 +1,44 @@
+# ── İşletim Sistemi ──────────────────────────
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# ── Editör / IDE ──────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ── Geliştirme Araçları ───────────────────────
+node_modules/
+.npm
+.eslintcache
+
+# ── Ortam & Gizli Dosyalar ────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Log Dosyaları ─────────────────────────────
+*.log
+npm-debug.log*
+
+# ── Dağıtım / Build Çıktıları ─────────────────
+dist/
+build/
+.cache/
+
+# ── GitHub Actions Geçici Dosyalar ────────────
+.github/outputs/

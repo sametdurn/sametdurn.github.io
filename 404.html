@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Sayfa Bulunamadı</title>
+  <style>
+    :root { --accent: #00ff88; --bg: #050a0e; --txt: #e8f4f8; --muted: #7a9bbf; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--txt);
+      font-family: 'JetBrains Mono', monospace;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .wrap { max-width: 480px; }
+    .code {
+      font-size: clamp(4rem, 15vw, 8rem);
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      text-shadow: 0 0 40px rgba(0,255,136,0.4);
+    }
+    h1 { font-size: 1.2rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+    p  { font-size: 0.875rem; color: var(--muted); margin-bottom: 2rem; }
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.4rem;
+      background: var(--accent);
+      color: #050a0e;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: box-shadow 0.2s;
+    }
+    a:hover { box-shadow: 0 0 20px rgba(0,255,136,0.5); }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="wrap">
+    <div class="code">404</div>
+    <h1>Sayfa bulunamadı</h1>
+    <p>Bu rota mevcut değil gibi görünüyor. Sizi ana sayfaya götürelim.</p>
+    <a href="/">← Portfolyoya Dön</a>
+  </div>
+</body>
+</html>

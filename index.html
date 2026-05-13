@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050a0e">
+  <meta name="robots" content="index, follow">
+
+  <!-- SEO — app.js tarafından config'den doldurulur -->
+  <title>Portfolyo</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="">
+  <meta property="og:description" content="">
+  <meta property="og:url"         content="">
+  <meta property="og:image"       content="">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card"  content="summary_large_image">
+  <meta property="twitter:title" content="">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="">
+
+  <!-- Kritik fontları önceden yükle -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+  <!-- Stil Dosyaları -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!-- Favicon (satır içi) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- sr-only yardımcı sınıfı -->
+  <style>
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Kaydırma ilerleme çubuğu -->
+  <div id="scroll-progress" role="progressbar" aria-label="Sayfa kaydırma ilerlemesi" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- ══ NAVİGASYON ══════════════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Ana navigasyon">
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Ana sayfa">
+        &lt;<span id="site-name">Portfolyo</span>/&gt;
+      </a>
+
+      <ul id="nav-menu" role="list">
+        <li><a href="#about"    class="nav-link">Hakkımda</a></li>
+        <li><a href="#skills"   class="nav-link">Beceriler</a></li>
+        <li><a href="#projects" class="nav-link">Projeler</a></li>
+        <li><a href="#contact"  class="nav-link">İletişim</a></li>
+        <li>
+          <a href="#contact" class="nav-cta" aria-label="İletişime geç">
+            İletişime Geç
+          </a>
+        </li>
+      </ul>
+
+      <button id="hamburger" aria-label="Navigasyon menüsünü aç/kapat" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ════════════════════════════════════════════════ -->
+  <section id="hero" aria-label="Tanıtım">
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <div class="hero-glow" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <p class="hero-label">// Merhaba, Dünya</p>
+          <h1 class="hero-name">
+            Ben <span class="accent" id="hero-name">Ada Yılmaz</span>
+          </h1>
+          <p class="hero-subtitle" aria-live="polite">
+            <span id="typing-text"></span><span class="cursor" aria-hidden="true"></span>
+          </p>
+          <p class="hero-bio" id="hero-bio"></p>
+
+          <div class="hero-actions" role="list">
+            <a href="#projects" class="btn-primary" role="listitem">
+              Projeleri Gör
+            </a>
+            <a href="" data-social="github" class="btn-icon" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="GitHub profili">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+              GitHub
+            </a>
+            <a href="" data-social="linkedin" class="btn-icon" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="LinkedIn profili">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+
+          </div>
+        </div>
+
+        <div class="hero-avatar animate-on-scroll" id="hero-avatar" aria-label="Profil fotoğrafı"></div>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      aşağı kaydır
+    </div>
+  </section>
+
+  <!-- ══ HAKKIMDA ════════════════════════════════════════════════ -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <p class="section-label">// 01. hakkımda</p>
+        <h2 class="section-title" id="about-heading">Hakkımda <span>Ben</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text animate-on-scroll">
+          <p id="about-bio"></p>
+          <p>
+            Geliştirme sürecimde Vibe Coding prensiplerini benimsiyorum. Bu, kodun her satırını manuel yazmak yerine, mimariyi ve sistem tasarımını (ASP.NET Core, Supabase gibi) yönetmeye odaklandığım, AI araçlarını ise birer 'verimlilik çarpanı' olarak kullandığım modern bir yaklaşım. Benim için önemli olan sadece kod yazmak değil, fikirleri hızla çalışan ve temiz kodlanmış ürünlere dönüştürmek.
+          </p>
+
+          <div class="about-stats" role="list" aria-label="Hızlı istatistikler">
+            <div class="stat-card" role="listitem">
+              <div class="stat-num">&lt; 1</div>
+              <div class="stat-label">Yıl deneyim</div>
+            </div>
+            <div class="stat-card" role="listitem">
+              <div class="stat-num">❋</div>
+              <div class="stat-label">Vibe Coding</div>
+            </div>
+            <div class="stat-card" role="listitem">
+              <div class="stat-num">10+</div>
+              <div class="stat-label">Teknoloji</div>
+            </div>
+            <div class="stat-card" role="listitem">
+              <div class="stat-num">Hızlı</div>
+              <div class="stat-label">Öğrenme Hızı</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="animate-on-scroll" style="transition-delay:100ms">
+          <h3 style="font-family:var(--font-mono);font-size:.8rem;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:var(--space-lg)">Eğitim</h3>
+          <div id="education-list" role="list" aria-label="Eğitim geçmişi"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BECERİLER ════════════════════════════════════════════════ -->
+  <section id="skills" aria-labelledby="skills-heading">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <p class="section-label">// 02. beceriler</p>
+        <h2 class="section-title" id="skills-heading">Teknoloji <span>Stack'im</span></h2>
+        <p class="section-subtitle">Her gün kullandığım teknolojiler ve sürekli genişlettığim araç setim.</p>
+      </div>
+
+      <div class="skills-grid" id="skills-grid" role="list" aria-label="Teknoloji becerileri"></div>
+    </div>
+  </section>
+
+  <!-- ══ PROJELER ════════════════════════════════════════════ -->
+  <section id="projects" aria-labelledby="projects-heading">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <p class="section-label">// 03. projeler</p>
+        <h2 class="section-title" id="projects-heading">Açık Kaynak <span>Çalışmalarım</span></h2>
+        <p class="section-subtitle">GitHub'dan canlı olarak çekiliyor. Her kart ilgili repoya bağlantı verir.</p>
+      </div>
+
+      <!-- Araç çubuğu -->
+      <div class="projects-toolbar animate-on-scroll">
+        <div id="filter-tags" role="group" aria-label="Kategoriye göre filtrele"></div>
+        <div class="search-wrap">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          <input type="search" id="project-search" placeholder="Repolar arasında ara…" aria-label="Repo ara" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="projects-meta">
+        <span id="repo-count" aria-live="polite" aria-atomic="true"></span>
+        <span id="data-source-badge"></span>
+      </div>
+
+      <!-- Grid -->
+      <div id="projects-grid" class="projects-grid" role="list" aria-label="Proje repoları" aria-live="polite"></div>
+
+      <!-- Sayfalama -->
+      <nav id="projects-pagination" aria-label="Projeler sayfalama"></nav>
+
+      <!-- Katkı grafiği (dekoratif) -->
+      <div class="contrib-section animate-on-scroll" aria-hidden="true">
+        <p class="contrib-label">// entropy_grid</p>
+        <div id="contrib-grid" role="presentation"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ İLETİŞİM ════════════════════════════════════════════ -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <p class="section-label">// 04. iletişim</p>
+        <h2 class="section-title" id="contact-heading">İletişime <span>Geçelim</span></h2>
+        <p class="section-subtitle">Tam zamanlı pozisyonlara, serbest projelere ve uzaktan çalışmaya açığım.</p>
+      </div>
+
+      <div class="contact-info animate-on-scroll" style="max-width:600px;margin:0 auto;text-align:center">
+        <p style="margin-bottom:var(--space-xl)">Şu anda yeni fırsatlara açığım. İster tam zamanlı bir pozisyon, ister zorlu bir serbest proje, ister sadece teknoloji hakkında bir sohbet olsun — LinkedIn üzerinden ulaşabilirsiniz.</p>
+
+        <div class="contact-item" style="justify-content:center">
+          <span class="contact-icon" aria-hidden="true">📍</span>
+          <span id="contact-location"></span>
+        </div>
+
+        <div class="social-links" role="list" aria-label="Sosyal medya bağlantıları" style="justify-content:center;margin-top:var(--space-xl)">
+          <a href="" data-social="github" class="btn-icon" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="GitHub">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+          <a href="" data-social="linkedin" class="btn-icon" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═══════════════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="container footer-inner">
+      <p class="footer-copy">
+        <span id="footer-name"></span> tarafından <span>❋</span> ile yapıldı · Framework yok, sadece temiz kod.
+      </p>
+      <p class="footer-copy">
+         /*<span>©  2026 </span><span id="footer-name2"></span>*/
+      </p>
+      <nav class="footer-links" aria-label="Footer bağlantıları">
+        <a href="" data-social="github" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="" data-social="linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="#hero">Başa dön ↑</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ══ PROJE MODALİ ════════════════════════════════════════════ -->
+  <div id="project-modal" class="modal-overlay" hidden aria-hidden="true" aria-modal="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <button id="modal-close" class="modal-close" aria-label="İletişim kutusunu kapat">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ══ TERMİNAL ═════════════════════════════════════════════ -->
+  <button id="terminal-trigger" aria-label="Terminali aç" aria-expanded="false" aria-controls="terminal" title="Terminal (paskalya yumurtası)">
+    &gt;_
+  </button>
+
+  <div id="terminal" role="complementary" aria-label="Etkileşimli terminal">
+    <div class="term-bar">
+      <span class="term-dot term-dot--r" aria-hidden="true"></span>
+      <span class="term-dot term-dot--y" aria-hidden="true"></span>
+      <span class="term-dot term-dot--g" aria-hidden="true"></span>
+      <span class="term-title">bash — portfolyo</span>
+    </div>
+    <div id="term-output" aria-live="polite" aria-label="Terminal çıktısı"></div>
+    <div class="term-input-row">
+      <span class="term-ps" aria-hidden="true">❯</span>
+      <label for="term-input" class="sr-only">Terminal komut girişi</label>
+      <input type="text" id="term-input" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="bir komut yazın…" aria-label="Terminal girişi">
+    </div>
+  </div>
+
+  <!-- Scriptler — sıra önemli -->
+  <script src="js/config.js"></script>
+  <script src="js/github.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
