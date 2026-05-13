@@ -1,7 +1,5 @@
-# ⚡ Geliştirici Portfolyosu
+# ⚡ Portfolyos Sitesi
 
-Bilgisayar Mühendisleri için tasarlanmış, modern cyberpunk-minimal statik portfolyo sitesi.
-Build adımı yok, backend yok — **GitHub Pages**'e 5 dakikada yayınlanır.
 
 ![Lisans](https://img.shields.io/badge/lisans-MIT-00ff88?style=flat-square)
 ![Statik](https://img.shields.io/badge/tür-statik-00b4ff?style=flat-square)
