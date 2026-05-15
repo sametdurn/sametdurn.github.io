@@ -256,16 +256,48 @@ const Nav = (() => {
     // Mobil menü
     const hamburger = document.getElementById("hamburger");
     const navMenu   = document.getElementById("nav-menu");
+    const overlay   = document.getElementById("nav-overlay");
+
+    function openMenu() {
+      navMenu.classList.add("open");
+      overlay && overlay.classList.add("open");
+      hamburger.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMenu() {
+      navMenu.classList.remove("open");
+      overlay && overlay.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+
     hamburger?.addEventListener("click", () => {
-      const open = navMenu.classList.toggle("open");
-      hamburger.setAttribute("aria-expanded", open);
+      const isOpen = navMenu.classList.contains("open");
+      isOpen ? closeMenu() : openMenu();
     });
 
+    // Overlay'e tıklanınca menüyü kapat
+    overlay?.addEventListener("click", closeMenu);
+
+    // Menü linklerine tıklanınca kapat
     navMenu?.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        navMenu.classList.remove("open");
-        hamburger?.setAttribute("aria-expanded", "false");
-      });
+      a.addEventListener("click", closeMenu);
+    });
+
+    // Escape tuşu ile kapat
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && navMenu.classList.contains("open")) {
+        closeMenu();
+        hamburger?.focus();
+      }
+    });
+
+    // Ekran genişlediğinde menüyü temizle
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        closeMenu();
+      }
     });
 
     // Kaydırmada navbar arka planı

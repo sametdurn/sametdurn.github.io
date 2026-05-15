@@ -78,8 +78,13 @@
 #hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
   padding: 6px;
+  cursor: pointer;
+  z-index: 101;
+  background: none;
+  border: none;
 }
 #hamburger span {
   display: block;
@@ -87,8 +92,33 @@
   height: 2px;
   background: var(--txt-secondary);
   border-radius: 2px;
-  transition: transform var(--dur-med), opacity var(--dur-med);
+  transition: transform var(--dur-med) var(--ease-out), opacity var(--dur-med), background var(--dur-fast);
 }
+
+/* Hamburger → X animasyonu */
+#hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background: var(--accent);
+}
+#hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+#hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background: var(--accent);
+}
+
+/* Overlay — menü açıkken arka planı karartır */
+#nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  backdrop-filter: blur(2px);
+}
+#nav-overlay.open { display: block; }
 
 /* ── Sections ─────────────────────────────────────────────── */
 section {
@@ -580,18 +610,48 @@ footer {
     position: fixed;
     top: var(--nav-h);
     left: 0; right: 0;
-    background: rgba(5,10,14,0.97);
-    backdrop-filter: blur(16px);
+    background: rgba(5,10,14,0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
-    align-items: flex-start;
-    padding: var(--space-xl);
-    gap: var(--space-lg);
+    align-items: stretch;
+    padding: var(--space-lg) var(--space-xl) var(--space-xl);
+    gap: 0;
     border-bottom: 1px solid var(--clr-border);
     transform: translateY(-110%);
     transition: transform var(--dur-med) var(--ease-out);
     pointer-events: none;
+    z-index: 100;
+    /* Görünür alan sınırı */
+    max-height: calc(100vh - var(--nav-h));
+    overflow-y: auto;
   }
-  #nav-menu.open { transform: translateY(0); pointer-events: all; }
+  #nav-menu.open {
+    transform: translateY(0);
+    pointer-events: all;
+  }
+  #nav-menu li {
+    border-bottom: 1px solid var(--clr-border);
+  }
+  #nav-menu li:last-child {
+    border-bottom: none;
+    padding-top: var(--space-lg);
+  }
+  #nav-menu .nav-link {
+    display: block;
+    padding: var(--space-md) 0;
+    font-size: 1rem;
+  }
+  #nav-menu .nav-link::after {
+    display: none;
+  }
+  #nav-menu .nav-cta {
+    display: block;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    font-size: 0.9rem;
+  }
   #hamburger { display: flex; }
 
   .hero-inner {
