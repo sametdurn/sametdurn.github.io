@@ -95,7 +95,7 @@ const CONFIG = Object.freeze({
     yardim:    "Kullanılabilir komutlar: hakkinda, beceriler, projeler, temizle, ise-al",
     hakkinda:  "Yeni Mezun Bilgisayar Mühendisi. Uzaktan çalışmaya açık.",
     beceriler: "C# · Python · JS/TS · React · YZ/DL",
-    projeler:  "Projeler bölümüne bakın ↓ ya da github.com/adayilmaz",
+    projeler:  "Projeler bölümüne bakın ↓ ya da github.com/sametdurn",
     "ise-al":  "✓ İş tekliflerine açığım! LinkedIn'den ulaşabilirsiniz.",
     sudo:      "Güzel deneme 😏",
     help:      "Kullanılabilir komutlar: hakkinda, beceriler, projeler, temizle, ise-al",
